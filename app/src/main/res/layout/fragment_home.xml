@@ -1,0 +1,43 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="?attr/text_one_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_64"
+        android:gravity="center"
+        android:text="@string/home_text"
+        android:textSize="@dimen/dimens_17"/>
+
+    <RelativeLayout
+        android:id="@+id/go_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_44"
+        android:background="@color/line">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dimens_8"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/bg_dialog_confirm"
+            android:gravity="center"
+            android:text="@string/search_lover"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dimens_13"/>
+    </RelativeLayout>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recycle_lover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
+
+</LinearLayout>

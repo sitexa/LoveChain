@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
-import com.sitexa.lovechain.base.Constants;
 import com.sitexa.lovechain.R;
 import com.sitexa.lovechain.base.Constants;
 import com.sitexa.lovechain.utils.FilesUtils;
 import com.sitexa.lovechain.utils.ShowDialog;
+import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXImageObject;
@@ -56,7 +56,9 @@ public class WxShareAndLoginUtils {
         if (!iwxapi.isWXAppInstalled()) {
             Toast.makeText(context, R.string.install_weixin, Toast.LENGTH_SHORT).show();
             return false;
-        } else if (!iwxapi.isWXAppSupportAPI()) {
+        } else if (iwxapi.getWXAppSupportAPI() < Build.getMajorVersion()) {
+            //https://www.jianshu.com/p/ace7e34de51c
+            //} else if (!iwxapi.isWXAppSupportAPI()) {
             Toast.makeText(context, R.string.updata_weixin, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -66,9 +68,9 @@ public class WxShareAndLoginUtils {
     public static IWXAPI getWXAPI(Context context) {
         if (iwxapi == null) {
             //通过WXAPIFactory创建IWAPI实例
-            iwxapi = WXAPIFactory.createWXAPI(context,  Constants.WX_AppID, false);
+            iwxapi = WXAPIFactory.createWXAPI(context, Constants.WX_AppID, false);
             //将应用的appid注册到微信
-            iwxapi.registerApp( Constants.WX_AppID);
+            iwxapi.registerApp(Constants.WX_AppID);
         }
         return iwxapi;
     }

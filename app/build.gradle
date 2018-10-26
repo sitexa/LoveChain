@@ -97,7 +97,7 @@ dependencies {
     //eventbus
     implementation 'org.greenrobot:eventbus:3.0.0'
     //微信登陆分享
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.6'
 
     //xrecycleview
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
